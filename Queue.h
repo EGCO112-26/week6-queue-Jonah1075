@@ -21,19 +21,19 @@ if(new_node){
 
 
 int dequeue_struct(Queue *q){
-  NodePtr t=q->headPtr;
-  if(t){
-  int value= t->data;
-         /*Finish dequeue */
-  q->headPtr = t->nextPtr;
-    free(t);
-      if(q->headPtr == NULL) 
+    if(q->headPtr == NULL)
+        return -1;
+
+    NodePtr t = q->headPtr;
+    int value = t->data;
+
+    q->headPtr = t->nextPtr;
+
+    if(q->headPtr == NULL)
         q->tailPtr = NULL;
-  q->size--;
 
-   return value;
-   }
-   printf("Empty queue");
-   return 0;
+    free(t);
+    q->size--;
+
+    return value;
 }
-

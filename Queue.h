@@ -26,9 +26,9 @@ int dequeue_struct(Queue *q){
   int value= t->data;
          /*Finish dequeue */
   q->headPtr = t->nextPtr;
-    if(q->size==1)q->tailPtr=t;
-      free(t);
+    if(q->size==1) q->tailPtr=t;
   q->size--;
+      free(t);
 
    return value;
    }

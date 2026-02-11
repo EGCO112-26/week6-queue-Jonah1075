@@ -26,15 +26,13 @@ int dequeue_struct(Queue *q){
   int value= t->data;
          /*Finish dequeue */
   q->headPtr = t->nextPtr;
-
-      if(q->headPtr == NULL) 
-         q->tailPtr = NULL;
+    if(q->size==1)q->tailPtr=t;
       free(t);
   q->size--;
 
    return value;
    }
     printf("Empty queue\n");
-    return -1;
+    return 0;
 }
 
